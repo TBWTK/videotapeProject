@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Касеты</title>
+</head>
+<body class="container">
+    <li><a href='/displayVideotape/'> Вернуться </a></li>
+    <h2>Добавление фильма</h2>
+    <form method = "POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p  }}
+        <button type="submit">Загрузить</button>
+    </form>
+</body>

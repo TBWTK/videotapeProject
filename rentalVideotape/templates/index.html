@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Прокат видеокассет</title>
+</head>
+<body>
+    <h1>Прокат видеокассет</h1>
+	<nav>
+	<ul class="top-menu">
+		<li><a href="/displayGenre/">Жанры</a></li>
+		<li><a href="/displayDirector/">Режиссеры</a></li>
+		<li><a href="/displayStatus/">Статусы</a></li>
+		<li><a href="/displayVideotape/">Видеокассеты</a></li>
+        <li><a href="/createRental/">Создать прокат</a></li>
+	</ul>
+	</nav>
+	<h2>Прокат видеокассет</h2>
+    {% if rental.count > 0 %}
+    <table>
+        <tr>
+            <th>Номер</th>
+            <th>Название фильма</th>
+            <th>Старт проката</th>
+            <th>Окончание проката</th>
+            <th>Имя</th>
+            <th>Фамилия</th>
+            <th>Почта</th>
+            <th>Телефон</th>
+            <th>Изменения</th>
+        </tr>
+        {% for el in rental %}
+        <tr>
+            <td>
+                {{ el.id }}
+            </td>
+            <td>
+                {{ el.videotape }}
+            </td>
+            <td>
+                {{ el.date_start }}
+            </td>
+            <td>
+                {{ el.date_end }}
+            </td>
+            <td>
+                {{ el.buyer_name }}
+            </td>
+            <td>
+                {{ el.buyer_surname }}
+            </td>
+            <td>
+                {{ el.buyer_email }}
+            </td>
+            <td>
+                {{ el.buyer_phone }}
+            </td>
+            <td>
+                <li><a href='editRental{{el.id}}'> изменить </a></li>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Жанры</title>
+</head>
+<body>
+    <li><a href='/displayGenre/'> Вернуться </a></li>
+    <h2>Добавить жанр</h2>
+    <form method = "POST" >
+        {% csrf_token %}
+        {{ form.as_p  }}
+        <button type="submit">Загрузить</button>
+    </form>
+</body>
+</html>
